@@ -33,5 +33,5 @@ Post.create(text: Faker::Quotes::Shakespeare.hamlet_quote, user_id: User.all.sam
 end
 
 puts "Done Seeding"
-
+puts "testing"
 
