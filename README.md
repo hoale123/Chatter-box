@@ -1,4 +1,26 @@
 # Project Template: React/Rails API
+To start
+- npm install --prefix client
+- npm start --prefix client
+- npm install semantic-ui-react semantic-ui-css
+- npm install react-router-dom
+- rails db:migrate
+- rails s
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Description
 
