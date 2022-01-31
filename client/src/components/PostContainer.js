@@ -5,7 +5,7 @@ import PostForm from "./PostForm";
 function PostContainer({ user }) {
   const [postArray, setPostArray] = useState([]);
   useEffect(() => {
-    fetch("/restaurants")
+    fetch("/posts")
       .then((resp) => resp.json())
       .then((data) => setPostArray(data));
   }, []);
@@ -19,10 +19,7 @@ function PostContainer({ user }) {
             user={user}
             key={post.id}
             id={post.id}
-            restaurantDescription={post.description}
-            restaurantName={post.name}
-            restaurantImage={post.image}
-            restaurantLocation={post.location}
+            content={post.text}
             username={post.user.username}
             avatar={post.user.profile_picture}
             date={post.date}
@@ -39,7 +36,7 @@ function PostContainer({ user }) {
 
   return (
     <>
-      <PostForm user={user} setPostArray={setPostArray} />
+      <PostForm key={user.id} user={user} setPostArray={setPostArray} />
       <div className="posts">{post}</div>
     </>
   );

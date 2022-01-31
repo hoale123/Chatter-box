@@ -1,4 +1,4 @@
-// import ListingsContainer from "./ListingsContainer";
+
 import Profile from "./Profile";
 import { Switch, Route } from "react-router-dom";
 import PostContainer from "./PostContainer";
@@ -15,7 +15,7 @@ function Main({ user, setUser }) {
 
       <Switch>
         <Route exact path="/">
-      <h1>{user.username}'s INEEEDY</h1>
+      <h1>{user.username}'s ChatterBox</h1>
           <PostContainer user={user} />
         </Route>
 

@@ -14,7 +14,7 @@ function NavBar({ user, setUser }) {
         .then((r) => {
           // console.log(r);
           setUser(null);
-          history.push("/me");
+          history.push("/");
         });
 
 

@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :restaurants
+  resources :posts
   resources :users
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
-  patch "/users", to: "users#update"
   #SESSIONS
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

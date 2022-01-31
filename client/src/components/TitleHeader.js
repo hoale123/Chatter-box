@@ -1,6 +1,5 @@
 import { Header, Image, Divider } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import logo from "./photos/yelp.jpeg";
 import typingLogo from "./photos/5 start.gif";
 
 function TitleHeader({ user }) {
@@ -8,15 +7,7 @@ function TitleHeader({ user }) {
     <div style={{ textAlign: "center", padding: "20px" }}>
       <Header as="h1">
         <Header.Content>
-          <Image
-            src={logo}
-            style={{ float: "left", height: "30px", width: "30px" }}
-          />
-          Indeedy
-          <Image
-            src={logo}
-            style={{ float: "right", height: "30px", width: "30px" }}
-          />
+          ChatterBox
         </Header.Content>
 
         {user ? (
@@ -43,7 +34,7 @@ function TitleHeader({ user }) {
           }}
         >
           <Header as="h2" style={{ fontWeight: "lighter" }}>
-            Welcome to Indeedy{" "}
+            Welcome to ChatterBox{" "}
           </Header>
           <Image
             src={typingLogo}

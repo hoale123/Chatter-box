@@ -1,4 +1,5 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
+import defaultProfile from "./photos/icons8-name-64.png";
 import {
   Form,
   Button,
@@ -9,10 +10,7 @@ import {
 function Post({
   user,
   id,
-  restaurantDescription,
-  restaurantName,
-  restaurantImage,
-  restaurantLocation,
+  content,
   username,
   avatar,
   date,
@@ -23,16 +21,10 @@ function Post({
   setPostArray
 }) {
   const [isClicked, setIsClicked] = useState(false);
-  const [updatedText, setUpdatedText] = useState(restaurantDescription);
-  const [checked, setChecked] = useState(false);
+  const [updatedText, setUpdatedText] = useState(content);
 
-  const handleChange = () => {
-    setChecked(!checked);
-  };
-
-  
   function handleRemove() {
-    fetch(`/restaurants/${id}`, {
+    fetch(`/posts/${id}`, {
       method: "DELETE",
     }).then((res) => res.json());
     const postsToDisplay = postArray.filter((post) => {
@@ -45,13 +37,13 @@ function Post({
 
   function handleEdit(e) {
     e.preventDefault();
-    fetch(`/restaurants/${id}`, {
+    fetch(`/posts/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        description: updatedText,
+        text: updatedText,
       }),
     })
       .then((res) => res.json())
@@ -85,33 +77,6 @@ function Post({
           border: "2px solid gray",
         }}
       >
-      {user.username === username ? (
-        <label>
-          Owner
-          <input
-            type="checkbox"
-            checked={checked}
-            onChange={handleChange}
-          />
-        </label>
-        ) : null}
-
-        {!checked? (
-          <>
-          <Image
-          src={restaurantImage} 
-          alt="user restaurantImage"
-          style={{ maxWidth: 250,   marginLeft:"auto",
-          marginRight:"auto" }}
-          />
-        <Header as="h3" style={{fontWeight:"lighter"}}>Restaurant Name: {restaurantName}</Header>
-        <Header as="h3" style={{fontWeight:"lighter"}}>Location: {restaurantLocation}</Header>
-        <Header as="h3" style={{fontWeight:"lighter"}}>Owner: {username}</Header>
-        <Header style={{fontWeight:"lighter", fontSize: "12px" }}>Posted: {date}</Header>
-        <Header as="h3" style={{fontWeight:"lighter"}}>Description: {restaurantDescription}</Header>
-          </>
-        ): 
-        <>
         <Image
           src={avatar} 
           alt="user avatar"
@@ -125,7 +90,7 @@ function Post({
             <Header style={{fontWeight:"lighter", fontSize: "12px" }}>Updated: {updatedDate}</Header>
             )}
         {!isClicked ? (
-          <p style={{fontWeight:"lighter", fontSize: "20px", marginLeft:"auto", marginRight:"auto",marginBottom:"0px",paddingLeft:"100px", paddingRight:"100px" }}>{restaurantDescription}</p>
+          <p style={{fontWeight:"lighter", fontSize: "20px", marginLeft:"auto", marginRight:"auto",marginBottom:"0px",paddingLeft:"100px", paddingRight:"100px" }}>{content}</p>
           ) : (
             <Form onSubmit={handleEdit} style={{textAlign: "left", marginTop:"20px", marginLeft:"auto",
             marginRight:"auto", paddingLeft:"150px",
@@ -155,8 +120,6 @@ function Post({
             </Button>
           </>
         ) : null}
-          </>}
-          
       </div>
       <br />
       </>

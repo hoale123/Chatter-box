@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     end
 
     def create #signup
+        # chanign the parameters to a hash, so I can change them
+        # Remove :profile_picture if it's empty
         parameters = user_params.to_h
         if parameters[:profile_picture].blank? then 
             parameters.delete(:profile_picture)
@@ -26,6 +28,8 @@ class UsersController < ApplicationController
     end
 
     def update
+        #chanign the parameters to a hash, so I can change them
+        #if profile picture is blank, then I replace with the default value by using the User.column_defaults["profile_picture"]
         parameters = user_params.to_h
         if parameters[:profile_picture].blank? then 
             parameters[:profile_picture] = User.column_defaults["profile_picture"]
@@ -35,7 +39,12 @@ class UsersController < ApplicationController
         render json: @current_user, status: :accepted
    
     end
+      
 
+    # def destroy
+    #     user = User.find_by(id: params[:id])
+    #     user.destroy
+    # end
 
     private
     # Only allow a list of trusted parameters through.
