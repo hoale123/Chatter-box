@@ -1,8 +1,8 @@
 class RestaurantsController < ApplicationController
-    before_action :find_restaurant, only: [:show, :update, :destroy]
+    before_action :find_restaurant
       
     # before_action :find_restaurant
-    skip_before_action :authorize, only: :index
+    skip_before_action :authorize
   
   def index
       restaurants = Restaurant.all.sort_by(&:created_at).reverse
