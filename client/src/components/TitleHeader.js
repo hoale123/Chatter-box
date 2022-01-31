@@ -12,7 +12,7 @@ function TitleHeader({ user }) {
             src={logo}
             style={{ float: "left", height: "30px", width: "30px" }}
           />
-          YELPPY
+          Indeedy
           <Image
             src={logo}
             style={{ float: "right", height: "30px", width: "30px" }}
@@ -43,7 +43,7 @@ function TitleHeader({ user }) {
           }}
         >
           <Header as="h2" style={{ fontWeight: "lighter" }}>
-            Welcome to Yelppy{" "}
+            Welcome to Indeedy{" "}
           </Header>
           <Image
             src={typingLogo}

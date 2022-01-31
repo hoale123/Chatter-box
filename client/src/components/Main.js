@@ -15,7 +15,7 @@ function Main({ user, setUser }) {
 
       <Switch>
         <Route exact path="/">
-      <h1>{user.username}'s YELPPY</h1>
+      <h1>{user.username}'s INEEEDY</h1>
           <PostContainer user={user} />
         </Route>
 
