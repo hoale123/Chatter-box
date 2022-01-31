@@ -26,7 +26,6 @@ class UsersController < ApplicationController
     end
 
     def update
-    # doesnt work
         parameters = user_params.to_h
         if parameters[:profile_picture].blank? then 
             parameters[:profile_picture] = User.column_defaults["profile_picture"]
@@ -36,7 +35,6 @@ class UsersController < ApplicationController
         render json: @current_user, status: :accepted
    
     end
-      
 
 
     private

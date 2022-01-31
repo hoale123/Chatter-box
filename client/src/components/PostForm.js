@@ -1,15 +1,17 @@
 import { useState } from "react";
-
+// import { Form,TextArea, Button } from "semantic-ui-react";
 const initialState = {
   name: "",
   image: "",
   location: "",
   description: "",
 };
-
-function NewRestaurantForm({ onAdd }) {
+function PostForm({ setPostArray, user }) {
+  // const [name, setName] = useState("");
+  // const [image, setImage] = useState("");
+  // const [location, setLocation] = useState("");
+  // const [description, setDescription] = useState("");
   const [formData, setFormData] = useState(initialState);
-
   function handleChange(e) {
     setFormData({
       ...formData,
@@ -17,22 +19,22 @@ function NewRestaurantForm({ onAdd }) {
     });
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetch("/restaurants", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((r) => r.json())
-      .then((newRestaurant) => {
-        setFormData(initialState);
-        onAdd(newRestaurant);
-      });
-  }
-
+// console.log("add google login and restaurant")
+function handleSubmit(e) {
+  e.preventDefault();
+  fetch("/restaurants", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((r) => r.json())
+    .then((newRestaurant) => {
+      setFormData(initialState);
+      setPostArray((prevPosts) => [newRestaurant, ...prevPosts]);
+    });
+}
   return (
     <div className="card">
       <h2>New Restaurant</h2>
@@ -70,4 +72,4 @@ function NewRestaurantForm({ onAdd }) {
   );
 }
 
-export default NewRestaurantForm;
+export default PostForm;

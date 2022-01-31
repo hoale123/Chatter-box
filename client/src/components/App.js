@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState } from "react";
-// import ReviewsContainer from './ReviewsContainer'
 import TitleHeader from "./TitleHeader";
 import Homepage from "./Homepage";
 

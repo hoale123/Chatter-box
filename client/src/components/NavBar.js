@@ -24,16 +24,16 @@ function NavBar({ user, setUser }) {
     <>
       <Menu style={{marginTop:"0px"}}>
 
-        {/* <Menu.Item>
+        <Menu.Item>
           <NavLink
             strict
-            to="/me"
+            to="/"
             style={{ color: "grey" }}
             activeStyle={{ fontWeight: "bold", color: "black" }}
           >
            Posts
           </NavLink>
-        </Menu.Item> */}
+        </Menu.Item>
 
         <Menu.Item>
           <NavLink
@@ -53,19 +53,9 @@ function NavBar({ user, setUser }) {
             </Menu.Header>
           </Menu.Item>
         ) : null}
-        <Menu.Item>
-          <NavLink
-            strict
-            to="/"
-            style={{ color: "grey" }}
-            activeStyle={{ fontWeight: "bold", color: "black" }}
-          >
-           Home
-          </NavLink>
-        </Menu.Item>
+
       </Menu>
     </>
-
   );
 }
 

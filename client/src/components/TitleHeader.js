@@ -1,6 +1,6 @@
 import { Header, Image, Divider } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import logo from "./photos/icons8-typewriter-with-paper-50.png";
+import logo from "./photos/yelp.jpeg";
 import typingLogo from "./photos/5 start.gif";
 
 function TitleHeader({ user }) {
@@ -58,6 +58,8 @@ function TitleHeader({ user }) {
           <p style={{ fontSize: "16px" }}>
           A seal is an intellectual cherry. A rhetorical horse without peaches is truly a squirrel of witty scorpions! The romantic owl reveals itself as a pro-active goldfish to those who look. 
           </p>
+          <>username: Richard </>
+          <>password: 1234567</>
 
           <div style={{ textAlign: "center", fontSize: "16px" }}>
             <Link to="/login">Login &ensp;</Link>
